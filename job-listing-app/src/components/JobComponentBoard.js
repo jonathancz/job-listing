@@ -1,5 +1,13 @@
 import React from 'react';
 
-const JobBoardComponent = () => <div>Hi from the Job Board Component!</div>
+const JobBoardComponent = ({job}) => (
+<div className="flex">
+    <div>
+        <img src={job.logo} alt={job.company} />
+    </div>
+    <div></div>
+    <div></div>
+</div>
+)
 
 export default JobBoardComponent;
