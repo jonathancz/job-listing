@@ -6,9 +6,7 @@ function App() {
   // Initialize as empty array
   const [jobs, setJobs] = useState([])
 
-  useEffect(() => {
-    setJobs(data)
-  }, [])
+  useEffect(() => setJobs(data, []))
 
   console.log(data)
   return (
@@ -18,6 +16,7 @@ function App() {
         jobs.length === 0 ? (
           <p>Jobs are fetching...</p>
         ) : (
+            // For every job object in data; create a job component
             jobs.map(job => (
               <JobBoardComponent job={job} key={job.id} />
             ))
