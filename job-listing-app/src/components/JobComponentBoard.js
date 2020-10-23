@@ -1,31 +1,44 @@
 import React from 'react';
 
-const JobBoardComponent = ({ job }) => {
-    const tags = [job.role, job.level]
+const JobBoardComponent = ({ 
+    job: {
+        company,
+        logo,
+        isNew,
+        featured,
+        position,
+        role,
+        level,
+        postedAt,
+        contract,
+        location,
+        languages,
+        tools,
+    }, }) => {
+    const tags = [role, level]
 
-    if(job.languages) {
-        tags.push(...job.languages)
+    if(tools) {
+        tags.push(...tools)
     }
 
-    if(job.tools) {
-        tags.push(...job.tools)
+    if(languages) {
+        tags.push(languages)
     }
     
     return (
         <div className="flex bg-white shadow-md m-4 p-6 rounded">
             <div>
-                <img src={job.logo} alt={job.company} />
+                <img src={logo} alt={company} />
             </div>
             <div className="flex flex-col justify-between ml-4">
                 <h3 className="font-bold text-teal-500">
-                    {job.company}
-                    {job.isNew && <span>New</span>}
-                    {console.log(job.featured)}
-                    {job.featured && <span>New</span>}
+                    {company}
+                    {isNew && <span>New</span>}
+                    {featured && <span>New</span>}
                 </h3>
-                <h2 className="font-bold text-xl">{job.position}</h2>
+                <h2 className="font-bold text-xl">{position}</h2>
                 <p className="text-gray-700">
-                    {job.postedAt} · {job.contract} · {job.location}
+                    {postedAt} · {contract} · {location}
                 </p>
             </div>
 
