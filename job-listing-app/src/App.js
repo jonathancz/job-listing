@@ -5,8 +5,32 @@ import JobBoardComponent from './components/JobComponentBoard'
 function App() {
   // Initialize as empty array
   const [jobs, setJobs] = useState([])
+  const [filters, setFilters] = useState([])
 
   useEffect(() => setJobs(data, []))
+
+  const filterFunc = ({role, level, tools, languages}) => {
+    const tags = [role, level]
+
+    if (tools) {
+      tags.push(...tools)
+    }
+
+    if (languages) {
+      tags.push(...languages)
+    }
+
+    if(filters.length === 0)
+    {
+      return true 
+    }
+
+    return tags.some(tag => filters.includes(tag))
+  }
+
+  const filteredJobs = jobs.filter(filterFunc)
+
+
 
   console.log(data)
   return (
@@ -20,7 +44,7 @@ function App() {
           <p>Jobs are fetching...</p>
         ) : (
             // For every job object in data; create a job component
-            jobs.map(job => (
+            filteredJobs.map(job => (
               <JobBoardComponent job={job} key={job.id} />
             ))
           )

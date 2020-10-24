@@ -22,7 +22,7 @@ const JobBoardComponent = ({
     }
 
     if (languages) {
-        tags.push(languages)
+        tags.push(...languages)
     }
 
     return (
