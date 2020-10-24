@@ -26,9 +26,9 @@ const JobBoardComponent = ({
     }
 
     return (
-        <div className={`flex bg-white shadow-md m-4 p-6 rounded ${featured && 'border-l-8 border-teal-500 border-solid'}`}>
+        <div className={`flex flex-col bg-white shadow-md my-16 mx-10 p-6 rounded ${featured && 'border-l-8 border-teal-500 border-solid'}`}>
             <div>
-                <img src={logo} alt={company} />
+                <img className='-mt-16 mb-4 w-20 h-20' src={logo} alt={company} />
             </div>
             <div className="flex flex-col justify-between ml-4">
                 <h3 className="font-bold text-teal-500">
@@ -42,7 +42,7 @@ const JobBoardComponent = ({
                 </p>
             </div>
 
-            <div className='flex items-center justify-end ml-auto'>
+            <div className='flex items-center mt-4 pt-4 border-t border-gray-200 border-solid'>
                 {tags ? tags.map((tag) => (
                     <span className='text-teal-500 bg-teal-100 font-bold m-2 p-2 rounded'>
                         {tag}
