@@ -1,6 +1,6 @@
 import React from 'react';
 
-const JobBoardComponent = ({ 
+const JobBoardComponent = ({
     job: {
         company,
         logo,
@@ -17,14 +17,14 @@ const JobBoardComponent = ({
     }, }) => {
     const tags = [role, level]
 
-    if(tools) {
+    if (tools) {
         tags.push(...tools)
     }
 
-    if(languages) {
+    if (languages) {
         tags.push(languages)
     }
-    
+
     return (
         <div className="flex bg-white shadow-md m-4 p-6 rounded">
             <div>
@@ -33,8 +33,8 @@ const JobBoardComponent = ({
             <div className="flex flex-col justify-between ml-4">
                 <h3 className="font-bold text-teal-500">
                     {company}
-                    {isNew && <span>New</span>}
-                    {featured && <span>New</span>}
+                    {isNew && <span className='text-teal-500 bg-teal-100 font-bold p-2 rounded'>New</span>}
+                    {featured && <span className='text-teal-500 bg-teal-100 font-bold m-2 p-2 rounded'>Featured</span>}
                 </h3>
                 <h2 className="font-bold text-xl">{position}</h2>
                 <p className="text-gray-700">
