@@ -32,8 +32,7 @@ function App() {
   }
 
   const handleFilterClick = (passedFilter) => {
-    setFilters(filters.filter((f) => f !== passedFilter)
-    );
+    setFilters(filters.filter((f) => f !== passedFilter))
   }
 
 
@@ -48,7 +47,8 @@ function App() {
         <img src='/images/bg-header-desktop.svg'
           alt='bg-image' />
       </header>
-      <div className="bg-white shadow-md">
+      <div className={`flex bg-white shadow-md my-16 mx-10 p-6 
+            rounded`}>
         {
           filters.length > 0 && (
             filters.map(filter =>
