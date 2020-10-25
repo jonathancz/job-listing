@@ -9,7 +9,7 @@ function App() {
 
   useEffect(() => setJobs(data, []))
 
-  const filterFunc = ({role, level, tools, languages}) => {
+  const filterFunc = ({ role, level, tools, languages }) => {
     const tags = [role, level]
 
     if (tools) {
@@ -20,13 +20,22 @@ function App() {
       tags.push(...languages)
     }
 
-    if(filters.length === 0)
-    {
-      return true 
+    if (filters.length === 0) {
+      return true
     }
 
     return tags.some(tag => filters.includes(tag))
   }
+
+  const handleTagClick = (tag) => {
+    setFilters([...filters, tag])
+  }
+
+  const handleFilterClick = (passedFilter) => {
+    setFilters(filters.filter((f) => f !== passedFilter)
+    );
+  }
+
 
   const filteredJobs = jobs.filter(filterFunc)
 
@@ -39,13 +48,29 @@ function App() {
         <img src='/images/bg-header-desktop.svg'
           alt='bg-image' />
       </header>
+      <div className="bg-white shadow-md">
+        {
+          filters.length > 0 && (
+            filters.map(filter =>
+              <span
+                onClick={() => handleFilterClick(filter)}
+                className='text-teal-500 bg-teal-100 font-bold mr-4
+                mb-4 p-2 rounded sm:mb-0'
+              >{filter}</span>)
+          )
+        }
+      </div>
       {
         jobs.length === 0 ? (
           <p>Jobs are fetching...</p>
         ) : (
             // For every job object in data; create a job component
             filteredJobs.map(job => (
-              <JobBoardComponent job={job} key={job.id} />
+              (<JobBoardComponent
+                job={job}
+                key={job.id}
+                handleTagClick={handleTagClick}
+              />)
             ))
           )
       }
