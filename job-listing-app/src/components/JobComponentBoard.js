@@ -53,7 +53,8 @@ const JobBoardComponent = ({
                 {tags ? tags.map((tag) => (
                     <span
                     onClick={() => handleTagClick(tag)} 
-                    className='text-teal-500 bg-teal-100 font-bold mr-2 mb-4 p-2 rounded sm:mb-0'>
+                    className='cursor-pointer 
+                    text-teal-500 bg-teal-100 font-bold mr-2 mb-4 p-2 rounded sm:mb-0'>
                         {tag}
                     </span>
                 )) : ''}

@@ -54,7 +54,7 @@ function App() {
             filters.map(filter =>
               <span
                 onClick={() => handleFilterClick(filter)}
-                className='text-teal-500 bg-teal-100 font-bold mr-4
+                className='text-teal-500 bg-teal-100 cursor-pointer font-bold mr-4
                 mb-4 p-2 rounded sm:mb-0'
               >{filter}</span>)
           )
