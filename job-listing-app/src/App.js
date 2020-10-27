@@ -28,7 +28,7 @@ function App() {
   }
 
   const handleTagClick = (tag) => {
-    if(filters.includes(tag)) return;
+    if (filters.includes(tag)) return;
     setFilters([...filters, tag])
   }
 
@@ -48,19 +48,19 @@ function App() {
         <img src='/images/bg-header-desktop.svg'
           alt='bg-image' />
       </header>
-      <div className={`flex bg-white shadow-md my-16 mx-10 p-6 
+      {
+        filters.length > 0 &&
+        <div className={`flex bg-white shadow-md my-16 mx-10 p-6 
             rounded`}>
-        {
-          filters.length > 0 && (
-            filters.map(filter =>
-              <span
-                onClick={() => handleFilterClick(filter)}
-                className='text-teal-500 bg-teal-100 cursor-pointer font-bold mr-4
+          {filters.map((filter) => (
+            <span
+              onClick={() => handleFilterClick(filter)}
+              className='text-teal-500 bg-teal-100 cursor-pointer font-bold mr-4
                 mb-4 p-2 rounded sm:mb-0'
-              >{filter}</span>)
-          )
-        }
-      </div>
+            >{filter}</span>))}
+
+        </div>
+      }
       {
         jobs.length === 0 ? (
           <p>Jobs are fetching...</p>
