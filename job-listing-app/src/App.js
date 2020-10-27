@@ -28,6 +28,7 @@ function App() {
   }
 
   const handleTagClick = (tag) => {
+    if(filters.includes(tag)) return;
     setFilters([...filters, tag])
   }
 
