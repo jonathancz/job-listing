@@ -48,8 +48,7 @@ function App() {
         <img src='/images/bg-header-desktop.svg'
           alt='bg-image' />
       </header>
-      {
-        filters.length > 0 &&
+      {filters.length > 0 &&
         <div className={`flex bg-white shadow-md my-16 mx-10 p-6 
             rounded`}>
           {filters.map((filter) => (
@@ -57,8 +56,11 @@ function App() {
               onClick={() => handleFilterClick(filter)}
               className='text-teal-500 bg-teal-100 cursor-pointer font-bold mr-4
                 mb-4 p-2 rounded sm:mb-0'
-            >{filter}</span>))}
-
+            >
+              {filter}
+              <span className='bg-teal-500 text-teal-100'>x</span>
+            </span>
+          ))}
         </div>
       }
       {
